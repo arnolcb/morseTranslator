@@ -1,0 +1,46 @@
+/* estilos para la barra de navegación */
+nav {
+    background-color: #4285F4;
+    color: white;
+    padding: 10px;
+  }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* estilos para el encabezado */
+  header {
+    background-color: #F1F3F4;
+    padding: 20px;
+    text-align: center;
+  }
+  header h1 {
+    margin-top: 0;
+  }
+  
+  /* estilos para el formulario de traducción */
+  form {
+    margin-top: 30px;
+    text-align: center;
+  }
+  form label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  form input[type="text"] {
+    border: 2px solid #4285F4;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+  }

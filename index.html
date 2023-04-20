@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8" />
+  <!--Agregar los archivos de assets-->
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script src="assets/scripts.js"></script>
+  <head>
+    <title>Morse traductor</title>
+    <body>
+        <!--Contenido-->
+        <header>
+            <nav>
+                <ul>
+                  <li><a href="#">Inicio</a></li>
+                  <li><a href="#">Acerca de</a></li>
+                  <li><a href="#">Contacto</a></li>
+                </ul>
+              </nav>
+              <h1>Traductor de Código Morse</h1>
+              <p>Traduce texto a código Morse o código Morse a texto</p>
+        </header>
+        <main>
+            <form method="POST" action="#">
+                <label for="texto">Texto:</label>
+                <input type="text" id="texto" name="texto" placeholder="Escribe aquí tu texto o código Morse">
+                
+                <p>¿Qué quieres traducir?</p>
+                <input type="radio" id="morse2texto" name="traduccion" value="morse2texto">
+                <label for="morse2texto">De código Morse a texto</label><br>
+                
+                <input type="radio" id="texto2morse" name="traduccion" value="texto2morse">
+                <label for="texto2morse">De texto a código Morse</label><br>
+                
+                <input type="submit" value="Traducir">
+              </form>
+              
+              <hr>
+              <div id="resultado"></div>
+        </main>
+        <footer>
+            <p>&copy; 2023 Traductor de Código Morse</p>
+            <ul>
+              <li><a href="#">Términos y condiciones</a></li>
+              <li><a href="#">Política de privacidad</a></li>
+              <li><a href="#">Contacto</a></li>
+            </ul>
+          </footer>
+          
+    </body>
+  </head>
+</html>
