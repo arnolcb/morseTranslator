@@ -1,52 +1,170 @@
 <!DOCTYPE html>
 <html>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    // función para traducir el texto introducido
+    function traducir() {
+      // obtener el texto introducido
+      var texto = document.getElementById("texto").value;
+      // obtener la opción de traducción seleccionada
+      var traduccion = document.querySelector(
+        'input[name="traduccion"]:checked'
+      ).value;
+      // variable para almacenar el resultado de la traducción
+      var resultado = "";
+      // traducción de Morse a texto
+      if (traduccion === "morse2texto") {
+        // tabla de caracteres Morse a texto
+        var morseATexto = {
+          ".-": "A",
+          "-...": "B",
+          "-.-.": "C",
+          "-..": "D",
+          ".": "E",
+          "..-.": "F",
+          "--.": "G",
+          "....": "H",
+          "..": "I",
+          ".---": "J",
+          "-.-": "K",
+          ".-..": "L",
+          "--": "M",
+          "-.": "N",
+          "---": "O",
+          ".--.": "P",
+          "--.-": "Q",
+          ".-.": "R",
+          "...": "S",
+          "-": "T",
+          "..-": "U",
+          "...-": "V",
+          ".--": "W",
+          "-..-": "X",
+          "-.--": "Y",
+          "--..": "Z",
+          "-----": "0",
+          ".----": "1",
+          "..---": "2",
+          "...--": "3",
+          "....-": "4",
+          ".....": "5",
+          "-....": "6",
+          "--...": "7",
+          "---..": "8",
+          "----.": "9",
+        };
+        // traducción de cada letra o número en el texto Morse
+        resultado = texto
+          .split(" ")
+          .map(function (codigo) {
+            return morseATexto[codigo];
+          })
+          .join("");
+      }
+      // traducción de texto a Morse
+      else if (traduccion === "texto2morse") {
+        // tabla de caracteres texto a Morse
+        var textoAMorse = {
+          A: ".-",
+          B: "-...",
+          C: "-.-.",
+          D: "-..",
+          E: ".",
+          F: "..-.",
+          G: "--.",
+          H: "....",
+          I: "..",
+          J: ".---",
+          K: "-.-",
+          L: ".-..",
+          M: "--",
+          N: "-.",
+          O: "---",
+          P: ".--.",
+          Q: "--.-",
+          R: ".-.",
+          S: "...",
+          T: "-",
+          U: "..-",
+          V: "...-",
+          W: ".--",
+          X: "-..-",
+          Y: "-.--",
+          Z: "--..",
+          0: "-----",
+          1: ".----",
+          2: "..---",
+          3: "...--",
+          4: "....-",
+          5: ".....",
+          6: "-....",
+          7: "--...",
+          8: "---..",
+          9: "----.",
+        };
+        // traducción de cada letra en el texto
+        resultado = texto
+          .toUpperCase()
+          .split("")
+          .map(function (letra) {
+            return textoAMorse[letra] || " ";
+          })
+          .join(" ");
+      }
+      // mostrar el resultado de la traducción
+      document.getElementById("resultado").innerHTML = resultado;
+    }
+  </script>
   <!--Agregar los archivos de assets-->
   <link rel="stylesheet" href="assets/styles.css" />
   <script src="assets/scripts.js"></script>
   <head>
     <title>Morse traductor</title>
     <body>
-        <!--Contenido-->
-        <header>
-            <nav>
-                <ul>
-                  <li><a href="#">Inicio</a></li>
-                  <li><a href="#">Acerca de</a></li>
-                  <li><a href="#">Contacto</a></li>
-                </ul>
-              </nav>
-              <h1>Traductor de Código Morse</h1>
-              <p>Traduce texto a código Morse o código Morse a texto</p>
-        </header>
-        <main>
-            <form method="POST" action="#">
-                <label for="texto">Texto:</label>
-                <input type="text" id="texto" name="texto" placeholder="Escribe aquí tu texto o código Morse">
-                
-                <p>¿Qué quieres traducir?</p>
-                <input type="radio" id="morse2texto" name="traduccion" value="morse2texto">
-                <label for="morse2texto">De código Morse a texto</label><br>
-                
-                <input type="radio" id="texto2morse" name="traduccion" value="texto2morse">
-                <label for="texto2morse">De texto a código Morse</label><br>
-                
-                <!--<input type="submit" value="Traducir">-->
-                <button type="button" onclick="traducir(); event.preventDefault();">Traducir</button>
-              </form>
-              
-              <hr>
-              <div id="resultado"></div>
-        </main>
-        <footer>
-            <p>&copy; 2023 Traductor de Código Morse</p>
-            <ul>
-              <li><a href="#">Términos y condiciones</a></li>
-              <li><a href="#">Política de privacidad</a></li>
-              <li><a href="#">Contacto</a></li>
-            </ul>
-          </footer>
-          
+      <!--Contenido-->
+      <header>
+        <!--NavBar-->
+        </nav>
+        <h1>Traductor de Código Morse</h1>
+        <p>Traduce texto a código Morse o código Morse a texto</p>
+      </header>
+      <main>
+        <h1>Traductor Morse</h1>
+        <form method="POST" action="#">
+          <label for="texto">Texto:</label>
+          <input
+            type="text"
+            id="texto"
+            name="texto"
+            placeholder="Escribe aquí tu texto o código Morse"
+          />
+          <p>¿Qué quieres traducir?</p>
+          <input
+            type="radio"
+            id="morse2texto"
+            name="traduccion"
+            value="morse2texto"
+          />
+          <label for="morse2texto">De código Morse a texto</label><br />
+          <input
+            type="radio"
+            id="texto2morse"
+            name="traduccion"
+            value="texto2morse"
+          />
+          <label for="texto2morse">De texto a código Morse</label><br />
+          <button type="button" onclick="traducir(); event.preventDefault();">
+            Traducir
+          </button>
+        </form>
+        <hr />
+        <div id="resultado"></div>
+      </main>
+      <footer>
+        <p>&copy; 2023 Traductor de Código Morse</p>
+        <p> Developed by <a href="https://github.com/arnolcb">Arnol Cáceres</a></li> </p>
+      </footer>
     </body>
   </head>
 </html>
