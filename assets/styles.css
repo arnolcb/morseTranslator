@@ -26,34 +26,134 @@ nav {
   }*/
   
   /* estilos para el formulario de traducción */
-  form {
-    margin-top: 30px;
-    text-align: center;
+  main {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
   }
-  form label {
-    display: block;
-    font-size: 18px;
+  
+  h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  
+  label {
+    font-size: 24px;
     margin-bottom: 10px;
   }
-  form input[type="text"] {
-    border: 2px solid #4285F4;
+  
+  input[type="text"] {
+    padding: 10px;
     font-size: 16px;
-    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #4285F4;
+    margin-bottom: 30px;
     width: 100%;
+    max-width: 500px;
   }
+  
+  p {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  button[type="button"] {
+    background-color: #4285F4;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="button"]:hover {
+    background-color: #2C6BB1;
+  }
+  
+  hr {
+    margin: 50px 0;
+    border: none;
+    border-top: 2px solid #F1F3F4;
+  }
+  
 
+  #resultado-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
   #resultado {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    background-color: #F1F3F4;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 500px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 20px;
+    color: #4285F4;
+  }
+  
+  #botones-resultado {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  #copiar, #reproducir {
+    background-color: #fff;
+    color: #4285F4;
+    padding: 5px 10px;
+    border: 1px solid #4285F4;
     border-radius: 5px;
     font-size: 16px;
-    line-height: 1.5;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #copiar:hover, #reproducir:hover {
+    background-color: #4285F4;
+    color: #fff;
+  }
+  
+  #copiar.copiado {
+    background-color: #2ECC71;
+    border-color: #2ECC71;
+    color: #fff;
+  }
+  
+  #copiar.copiado:hover {
+    background-color: #27AE60;
+    border-color: #27AE60;
   }
 
   /* estilos para el pie de página */
   footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     margin-top: 20px;
     background-color: #F1F3F4;
     color: #4285F4;
